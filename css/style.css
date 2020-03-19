@@ -1,0 +1,138 @@
+/* .hide{
+
+} */
+.back{
+    background-color: rgb(247, 218, 243);
+}
+
+.cell{
+    width: 45px;
+    height: 45px;
+    border-style: outset;
+    background-color: #de22a88f;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    /* background-image: url(/img/close.png) */
+
+}
+
+  .cell:active{
+    background-color:#6b044ee7;
+    box-shadow: 0 1px #666;
+    /* transform: translateY(1px); */
+ } 
+.clicked{
+    width: 45px;
+    height: 45px;
+    border-style: outset;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    background-color:#6b044ee7;
+    color:white;
+}
+ 
+
+/* .cell:focus {
+    background-color:#6b044ee7;
+    box-shadow: 0 1px #666;
+}
+
+.cell:target {
+    background-color:#6b044ee7;
+    box-shadow: 0 1px #666;
+} */
+
+.game-over{
+    display: none;
+    width: 350px;
+    padding: 20px;
+    background-color:#f30b50;
+    border-style: dotted;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.win{
+    display: none;
+    width: 350px;
+    padding: 20px;
+    background-color:#ef12b0;
+    border-style: double;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.start{
+    display: none;
+}
+
+button{
+    background-color:rgba(243, 191, 227, 0.966);
+    /* display: inline-block; */
+    border-style: outset;
+    border-color: deeppink;
+    margin:5px;
+  /* color: white; */
+
+}
+
+.hints{
+    margin-left: 59px;
+
+}
+
+.hint-clicked{
+    background-color:rgba(109, 2, 77, 0.966);
+}
+
+.smile{
+    padding: 0px;
+    padding-right: 3px;
+    margin-left: 93px;
+    font-size: 33px;
+    width: 42px;
+    border-style: outset;
+    margin-bottom: 3px;
+    background-color:rgb(241, 134, 191) ;
+}
+
+.smile:active{
+    background-color:#6b044ee7;
+    box-shadow: 0 1px #666;
+}
+
+.timer{
+    background-color:#ef12b0 ;
+    width: 217px;
+    height: 23px;
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+    border-style: outset
+}
+
+.lives{
+    background-color: #f59cdd;
+    padding: 20px;
+    font-size: 30px;
+    border-color: #ab0d62;
+    border-style: double;
+    text-align: center;
+    width: 161px;
+    border-width: 10px;
+    margin: 10px
+}
+
+.game-board{
+    border: 10px;
+}
+
+table{
+    border: 5px;
+    border-style: double;
+}
