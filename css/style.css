@@ -6,8 +6,8 @@
 }
 
 .cell{
-    width: 45px;
-    height: 45px;
+    width: 25px;
+    height: 25px;
     border-style: outset;
     background-color: #de22a88f;
     text-align: center;
@@ -23,8 +23,8 @@
     /* transform: translateY(1px); */
  } 
 .clicked{
-    width: 45px;
-    height: 45px;
+    width: 25px;
+    height: 25px;
     border-style: outset;
     text-align: center;
     font-size: 20px;
@@ -133,6 +133,7 @@ button{
 }
 
 table{
-    border: 5px;
-    border-style: double;
+    border: 2px;
+    border-style: outset;
+    margin: inherit;
 }
