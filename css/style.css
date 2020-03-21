@@ -17,11 +17,12 @@
 
 }
 
-  .cell:active{
+.cell:active{
     background-color:#6b044ee7;
     box-shadow: 0 1px #666;
     /* transform: translateY(1px); */
- } 
+} 
+
 .clicked{
     width: 25px;
     height: 25px;
@@ -35,29 +36,37 @@
  
 .game-over{
     display: none;
-    width: 350px;
-    padding: 20px;
-    background-color:#f30b50;
-    border-style: dotted;
+    width: 150px;
+    padding: 12px;
+    background-color: #f30b50;
+    border-style: double;
     margin-top: 10px;
     text-align: center;
-    font-size: 40px;
-    font-weight: 900;
+    font-size: 26px;
+    border-radius: 57px;
+    margin: auto;
+    border-width: 5px;
 }
 
 .win{
     display: none;
-    width: 350px;
-    padding: 20px;
-    background-color:#ef12b0;
+    width: 150px;
+    padding: 12px;
+    background-color: #f30b50;
     border-style: double;
     margin-top: 10px;
     text-align: center;
-    font-size: 40px;
+    font-size: 26px;
+    border-radius: 57px;
+    margin: auto;
+    border-width: 5px;
 }
 
 .start{
     display: none;
+    margin: auto;
+    padding: 5px;
+    margin-bottom: 11px
 }
 
 
@@ -102,7 +111,7 @@ button{
 
 .scores{
     margin: auto;
-    width: 258px;
+    width: 216px;
     padding: 12px
 }
 
@@ -140,7 +149,7 @@ table{
     width: 350px;
     margin: auto;
     padding-bottom: 20px;
-    padding-top: 50px;
+    padding-top: 20px
 }
 
 .level{

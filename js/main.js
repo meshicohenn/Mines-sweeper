@@ -15,7 +15,7 @@ var gBestScore = [{ size: 4, bestScore: 0 }, { size: 8, bestScore: 0 }, { size: 
 
 var gLevel = {
     size: 4,
-    mines: 0,
+    mines: 2,
     bestScore: -Infinity
 };
 var gGame = {
@@ -48,7 +48,6 @@ function setgGame() {
 }
 
 function setgLevel(size, mines) {
-    // debugger
     gLevel.size = size;
     gLevel.mines = mines;
 }
@@ -65,9 +64,13 @@ function cellClicked(elCell, i, j) {
     var cell = gBoard[i][j];
     var value;
 
-    if (!gGame.isOn) return;
+    console.log(gGame);
 
-    if (cell.isShown) return;
+
+
+    if (!gGame.isOn || cell.isShown || cell.isMarked)
+        return;
+
 
     if (gCounterCell === 0) {
         if (gHintIsOn) return;
@@ -76,13 +79,11 @@ function cellClicked(elCell, i, j) {
         setMinesNegsCount(gBoard);
         timerBtMillisec();
     }
-
     if (gHintIsOn) {
         gHintIsOn = false;
         showAllNeighbors(i, j, elCell);
         return;
     }
-
     if (cell.isMine) {
         gLives--;
         renderLives();
@@ -101,32 +102,6 @@ function cellClicked(elCell, i, j) {
         renderCell({ i: i, j: j }, value);
     }
     else if (cell.minesAroundCount === 0 && !cell.isMine) {
-        // debugger
-        // cell.isShown = true;
-        // elCell.classList.add('clicked');
-        // gGame.shownCount++;
-        // renderScore();
-
-        // var locationNeighbors = countMines(i, j, gBoard);
-
-        // for (var i = 0; i < locationNeighbors.length; i++) {
-        //     var indexI = locationNeighbors[i].i;
-        //     var indexJ = locationNeighbors[i].j;
-        //     var cell = gBoard[indexI][indexJ];
-        //     if (cell.isShown) continue;
-
-        //     value = cell.minesAroundCount;
-        //     cell.isShown = true;
-        //     var cellId = getIdName(locationNeighbors[i]);
-        //     var elCellById = document.getElementById(cellId);
-        //     elCellById.classList.add('clicked');
-        //     gGame.shownCount++;
-        //     renderScore();
-        //     if (cell.minesAroundCount !== 0) {
-        //         renderCell(locationNeighbors[i], value);
-        //     }
-        // }
-        // }
         countAllMines(i, j);
     }
     if (checkBoardStatus()) return win();
@@ -137,9 +112,10 @@ function cellMarked(i, j) {
     if (!gGame.isOn) return;
     var cell = gBoard[i][j];
     if (cell.isMarked) {
-        gGame.markedCount--
+        gGame.markedCount--;
         cell.isMarked = false;
         renderCell({ i: i, j: j }, '');
+        checkBoardStatus();
         return;
     }
     if (cell.isShown) return;

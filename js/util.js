@@ -106,48 +106,8 @@ function countMines(cellI, cellJ, mat) {
 }
 
 function countAllMines(posI, posJ) {
-  // var cell = gBoard[i][j];
-  // cell.isShown = true;
-  // elCell.classList.add('clicked');
-  // gGame.shownCount++;
-  // renderScore();
-  // renderCell({i:i,j:j},cell.minesAroundCount);
-  // if(gBoard[i][j].minesAroundCount!==0){
-  //   return 
-  // }
-  // debugger
-  // if (gBoard[i][j].minesAroundCount !== 0) {
-  //   return;
-  // }
-
-  // var locationNeighbors = countMines(i, j, gBoard);
-  // locationNeighbors.push({ i: i, j: j });
-
-  // for (var i = 0; i < locationNeighbors.length; i++) {
-  //   var indexI = locationNeighbors[i].i;
-  //   var indexJ = locationNeighbors[i].j;
-  //   var cell = gBoard[indexI][indexJ];
-  //   var value = cell.minesAroundCount;
-  //   if (cell.isShown && value !== 0) continue;
-  //   if (!cell.isShown) {
-  //     gGame.shownCount++;
-  //     renderScore();
-  //   }
-
-  //   var cellId = getIdName(locationNeighbors[i]);
-  //   var elCellById = document.getElementById(cellId);
-  //   elCellById.classList.add('clicked');
-  //   cell.isShown = true;
-  //   renderCell(locationNeighbors[i], value);
-
-  //   if (value === 0) {
-  //     countAllMines(indexI, indexJ);
-  //   } else return;
-  // }
-  // debugger
-
   if (posI < 0 || posJ < 0 || posI === gLevel.size || posJ === gLevel.size
-    || gBoard[posI][posJ].isMine || gBoard[posI][posJ].isShown) {
+    || gBoard[posI][posJ].isMine || gBoard[posI][posJ].isShown ) {
     return;
   }
 
@@ -159,7 +119,9 @@ function countAllMines(posI, posJ) {
   cell.isShown = true;
   gGame.shownCount++;
   renderScore();
+  if(cell.isMarked) gGame.markedCount--;
   renderCell({i:posI,j:posJ}, value);
+
 
   if (cell.minesAroundCount > 0) {
     return;
