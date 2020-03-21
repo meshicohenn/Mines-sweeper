@@ -9,35 +9,31 @@
     <title>Mine Sweeper</title>
 </head>
 
-<body class = "back"onload="init()" oncontextmenu="return false;">
-    <!-- <input type="radio" calss = "easy" onclick="setgLevel(4,2)">
-    <label for="easy">easy</label><br>
-    <input type="radio" calss="hard" onclick="setgLevel(8,12)">
-    <label for="female">hard</label><br>
-    <input type="radio" calss="harder" onclick="setgLevel(12,30)">
-    <label for="other">harder</label> -->
+<body class="back" onload="init()" oncontextmenu="return false;">
 
     <button class="start" onclick="start()">start again</button>
     <div class="game-over">Game Over</div>
     <div class="win">win win!!! nice job :)</div>
-
-    <button class = "easy" onclick="levelChange(4,2)">Beginner</button>
-    <button class = "hard" onclick="levelChange(8,12)">Medium</button>
-    <button class = "harder" onclick="levelChange(12,30)">Expert</button>
-
-    <div class = "hints"></div>
-    <div class = "smile" onclick="start()"></div>
-    <div class = "lives"></div>
+    <div class="levels">
+        <button class="level" onclick="levelChange(4,2)">Beginner</button>
+        <button class="level" onclick="levelChange(8,12)">Medium</button>
+        <button class="level" onclick="levelChange(12,30)">Expert</button>
+    </div>
+    <div class="hints"></div>
+    <div class="smile" onclick="start()"></div>
+    <div class="lives"></div>
     <div class="timer">
         <span class="mil-seconds">0000</span>
     </div>
+    <div class="scores">
+        <span class="best-score score">best score: 0000</span>
+        <span class="current-score score">score: 0000</span>
+    </div>
+
 
     <table>
         <tbody class="game-board"></tbody>
     </table>
-
-    
-   
 
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>

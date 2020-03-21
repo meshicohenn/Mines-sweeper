@@ -33,17 +33,6 @@
     color:white;
 }
  
-
-/* .cell:focus {
-    background-color:#6b044ee7;
-    box-shadow: 0 1px #666;
-}
-
-.cell:target {
-    background-color:#6b044ee7;
-    box-shadow: 0 1px #666;
-} */
-
 .game-over{
     display: none;
     width: 350px;
@@ -71,19 +60,14 @@
     display: none;
 }
 
+
+
 button{
     background-color:rgba(243, 191, 227, 0.966);
-    /* display: inline-block; */
     border-style: outset;
     border-color: deeppink;
-    margin:5px;
-  /* color: white; */
-
-}
-
-.hints{
-    margin-left: 59px;
-
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 .hint-clicked{
@@ -93,11 +77,12 @@ button{
 .smile{
     padding: 0px;
     padding-right: 3px;
-    margin-left: 93px;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
     font-size: 33px;
     width: 42px;
     border-style: outset;
-    margin-bottom: 3px;
     background-color:rgb(241, 134, 191) ;
 }
 
@@ -111,21 +96,40 @@ button{
     width: 217px;
     height: 23px;
     text-align: center;
-    margin: 10px;
+    margin: auto;
+    font-size: 20px;
+    border-style: outset
+}
+
+.scores{
+    margin: auto;
+    width: 258px;
+    padding: 12px
+}
+
+.score{
+    background-color:#ef12b0 ;
+    /* width: 217px;
+    height: 23px; */
+    padding: 0px 5px;
+    text-align: center;
+    margin: auto;
     font-size: 20px;
     border-style: outset
 }
 
 .lives{
-    background-color: #f59cdd;
-    padding: 20px;
+    /* background-color: #f59cdd; */
+    /* padding: 20px; */
     font-size: 30px;
-    border-color: #ab0d62;
-    border-style: double;
+    /* border-color: #ab0d62; */
+    /* border-style: double; */
     text-align: center;
     width: 161px;
     border-width: 10px;
-    margin: 10px
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .game-board{
@@ -135,5 +139,33 @@ button{
 table{
     border: 2px;
     border-style: outset;
-    margin: inherit;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.levels{
+    width: 350px;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 50px;
+}
+
+.level{
+    padding: 10px 30px;
+    
+}
+
+.hints{
+    width: 165px;
+    margin: auto;
+}
+
+.hint{
+    padding: 3px 10px;
+    font-size: 27px;
+    margin-right:3px;
+}
+
+.start-page{
+    margin: auto;
 }

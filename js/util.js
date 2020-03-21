@@ -59,6 +59,7 @@ function getIdName(location) {
 
 
 
+
 function getRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
   var color = '#';
@@ -121,4 +122,12 @@ function timerBtMillisec(){
           board.push(row);
       }
       return board;
+  }
+
+  function changeColorLives(color){
+    if(!color){
+      color = '#f59cdd';
+    }
+    var elLives = document.querySelector('.lives');
+    elLives.style.backgroundColor = color;
   }
