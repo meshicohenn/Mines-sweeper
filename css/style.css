@@ -61,7 +61,6 @@
 }
 
 
-
 button{
     background-color:rgba(243, 191, 227, 0.966);
     border-style: outset;
@@ -109,8 +108,6 @@ button{
 
 .score{
     background-color:#ef12b0 ;
-    /* width: 217px;
-    height: 23px; */
     padding: 0px 5px;
     text-align: center;
     margin: auto;
@@ -119,11 +116,7 @@ button{
 }
 
 .lives{
-    /* background-color: #f59cdd; */
-    /* padding: 20px; */
     font-size: 30px;
-    /* border-color: #ab0d62; */
-    /* border-style: double; */
     text-align: center;
     width: 161px;
     border-width: 10px;
@@ -152,7 +145,6 @@ table{
 
 .level{
     padding: 10px 30px;
-    
 }
 
 .hints{

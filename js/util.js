@@ -42,21 +42,20 @@ function renderBoard(board) {
 
 function renderCell(location, value) {
   // Select the elCell and set the value
+  var newValue = value === 0 ? '' : value;
   var elCell = document.getElementById(`cell${location.i}-${location.j}`);
-  elCell.innerText = value;
+  elCell.innerText = newValue;
 }
 
-function renderSmile(value){
+function renderSmile(value) {
   var elSmile = document.querySelector('.smile');
   elSmile.innerHTML = value;
 }
 
 function getIdName(location) {
-	var cellId = 'cell' + location.i + '-' + location.j;
-	return cellId;
+  var cellId = 'cell' + location.i + '-' + location.j;
+  return cellId;
 }
-
-
 
 
 
@@ -106,28 +105,128 @@ function countMines(cellI, cellJ, mat) {
   return neighbors;
 }
 
-function timerBtMillisec(){
-  gStartTime = Date.now();
-  gIntervalTimer = setInterval(() => {
-      var dif = Date.now() - gStartTime;
-      var elMlSeconds = document.querySelector('.mil-seconds');
-      elMlSeconds.innerText = dif /1000;
-  }, 10);
-  }
-  
-  function copy2Darray(mat){
-      var board = [];
-      for (var i = 0; i < mat.length; i++) {
-          var row = mat[i].slice();
-          board.push(row);
-      }
-      return board;
+function countAllMines(posI, posJ) {
+  // var cell = gBoard[i][j];
+  // cell.isShown = true;
+  // elCell.classList.add('clicked');
+  // gGame.shownCount++;
+  // renderScore();
+  // renderCell({i:i,j:j},cell.minesAroundCount);
+  // if(gBoard[i][j].minesAroundCount!==0){
+  //   return 
+  // }
+  // debugger
+  // if (gBoard[i][j].minesAroundCount !== 0) {
+  //   return;
+  // }
+
+  // var locationNeighbors = countMines(i, j, gBoard);
+  // locationNeighbors.push({ i: i, j: j });
+
+  // for (var i = 0; i < locationNeighbors.length; i++) {
+  //   var indexI = locationNeighbors[i].i;
+  //   var indexJ = locationNeighbors[i].j;
+  //   var cell = gBoard[indexI][indexJ];
+  //   var value = cell.minesAroundCount;
+  //   if (cell.isShown && value !== 0) continue;
+  //   if (!cell.isShown) {
+  //     gGame.shownCount++;
+  //     renderScore();
+  //   }
+
+  //   var cellId = getIdName(locationNeighbors[i]);
+  //   var elCellById = document.getElementById(cellId);
+  //   elCellById.classList.add('clicked');
+  //   cell.isShown = true;
+  //   renderCell(locationNeighbors[i], value);
+
+  //   if (value === 0) {
+  //     countAllMines(indexI, indexJ);
+  //   } else return;
+  // }
+  // debugger
+
+  if (posI < 0 || posJ < 0 || posI === gLevel.size || posJ === gLevel.size
+    || gBoard[posI][posJ].isMine || gBoard[posI][posJ].isShown) {
+    return;
   }
 
-  function changeColorLives(color){
-    if(!color){
-      color = '#f59cdd';
-    }
-    var elLives = document.querySelector('.lives');
-    elLives.style.backgroundColor = color;
+  var cell = gBoard[posI][posJ];
+  var value = cell.minesAroundCount;
+  var cellId = getIdName({i:posI,j:posJ});
+  var elCellById = document.getElementById(cellId);
+  elCellById.classList.add('clicked');
+  cell.isShown = true;
+  gGame.shownCount++;
+  renderScore();
+  renderCell({i:posI,j:posJ}, value);
+
+  if (cell.minesAroundCount > 0) {
+    return;
   }
+  for (var i = posI - 1; i <= posI + 1; i++) {
+    for (var j = posJ - 1; j <= posJ + 1; j++) {
+      countAllMines(i, j)
+    }
+  }
+
+}
+
+// function expendedReveal(cellI, cellJ) {
+//   if (cellI < 0 ||
+//     cellJ < 0 ||
+//     cellI === gBoard.length ||
+//     cellJ === gBoard.length ||
+//     gBoard[cellI][cellJ].isMine ||
+//     gBoard[cellI][cellJ].isShown) {
+//     return
+//   }
+//   //Handle current Cell
+//   var currentElement = getCellElement(cellI, cellJ)
+//   if (currentElement.innerText === FLAG && gBoard[cellI][cellJ].minesAroundCount === 0 && !gBoard[cellI][cellJ].isMine) { //removing "floating" flags 
+//     gBoard[cellI][cellJ].isMarked = false
+//     currentElement.innerText = ''
+//     console.log('removed floating flag')
+//     gGame.markedCount--
+//     document.querySelector('.flag-counter').innerText = gLevel.MINES - gGame.markedCount
+//   }
+//   var classToAdd = 'neg' + gBoard[cellI][cellJ].minesAroundCount
+//   currentElement.classList.add(classToAdd)
+//   gBoard[cellI][cellJ].isShown = true
+//   gGame.shownCount++
+//   // Stop also when getting to cell with some negs
+//   if (gBoard[cellI][cellJ].minesAroundCount > 0) {
+//     return
+//   }
+//   for (var i = cellI - 1; i <= cellI + 1; i++) {
+//     for (var j = cellJ - 1; j <= cellJ + 1; j++) {
+//       expendedReveal(i, j)
+//     }
+//   }
+// }
+
+function timerBtMillisec() {
+  gStartTime = Date.now();
+  gIntervalTimer = setInterval(() => {
+    var dif = Date.now() - gStartTime;
+    var elMlSeconds = document.querySelector('.mil-seconds');
+    elMlSeconds.innerText = dif / 1000;
+  }, 10);
+}
+
+function copy2Darray(mat) {
+  var board = [];
+  for (var i = 0; i < mat.length; i++) {
+    var row = mat[i].slice();
+    board.push(row);
+  }
+  return board;
+}
+
+function changeColorLives(color) {
+  if (!color) {
+    color = '#f59cdd';
+  }
+  var elLives = document.querySelector('.lives');
+  elLives.style.backgroundColor = color;
+}
